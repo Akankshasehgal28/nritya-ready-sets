@@ -17,12 +17,18 @@ const ForAcademies = () => {
     
     // Create WhatsApp message
     const message = `New Academy Demo Request:
-Academy: ${data.academy}
-Choreographer: ${data.choreographer}
+Academy: ${data.academyName}
+Choreographer: ${data.choreographerName}
+Email: ${data.email}
+Phone: ${data.phone}
 Event Date: ${data.eventDate}
+Rehearsal Date: ${data.rehearsalDate || 'Not specified'}
 Dancers: ${data.dancerCount}
-Theme: ${data.theme}
-Contact: ${data.contact}`;
+Dance Form: ${data.danceForm}
+Color Theme: ${data.colorTheme}
+Budget per Costume: ₹${data.budgetPerCostume}
+Delivery Address: ${data.deliveryAddress}
+Additional Notes: ${data.notes || 'None'}`;
     
     const whatsappUrl = `https://wa.me/919999999999?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
@@ -37,6 +43,16 @@ Contact: ${data.contact}`;
       <WhatsAppButton />
 
       <main className="flex-1">
+        {/* Pilot Guarantee Banner */}
+        <div className="bg-gradient-to-r from-accent to-accent/80 text-accent-foreground py-3">
+          <div className="container mx-auto px-4 text-center">
+            <p className="font-semibold flex items-center justify-center gap-2">
+              <Gift className="h-5 w-5" />
+              Pilot Guarantee: First 2 events — no service fee. Limited offer in Gurgaon.
+            </p>
+          </div>
+        </div>
+
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-br from-primary/10 to-accent/10">
           <div className="container mx-auto px-4 text-center">
@@ -46,10 +62,6 @@ Contact: ${data.contact}`;
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               Reliable costume rentals with guaranteed backup support. Designed specifically for dance academies and group performances.
             </p>
-            <div className="inline-flex items-center space-x-2 bg-accent text-accent-foreground px-6 py-3 rounded-full font-semibold">
-              <Gift className="h-5 w-5" />
-              <span>Pilot Offer: First 2 events — no service fee</span>
-            </div>
           </div>
         </section>
 
@@ -146,12 +158,23 @@ Contact: ${data.contact}`;
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="academy">Academy Name *</Label>
-                        <Input id="academy" name="academy" required />
+                        <Label htmlFor="academyName">Academy Name *</Label>
+                        <Input id="academyName" name="academyName" required />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="choreographer">Choreographer Name *</Label>
-                        <Input id="choreographer" name="choreographer" required />
+                        <Label htmlFor="choreographerName">Choreographer Name *</Label>
+                        <Input id="choreographerName" name="choreographerName" required />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="email">Email *</Label>
+                        <Input id="email" name="email" type="email" required />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="phone">Phone (WhatsApp) *</Label>
+                        <Input id="phone" name="phone" type="tel" required />
                       </div>
                     </div>
 
@@ -161,27 +184,50 @@ Contact: ${data.contact}`;
                         <Input id="eventDate" name="eventDate" type="date" required />
                       </div>
                       <div className="space-y-2">
+                        <Label htmlFor="rehearsalDate">Rehearsal Date</Label>
+                        <Input id="rehearsalDate" name="rehearsalDate" type="date" />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
                         <Label htmlFor="dancerCount">Number of Dancers *</Label>
                         <Input id="dancerCount" name="dancerCount" type="number" min="1" required />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="danceForm">Dance Form *</Label>
+                        <Input id="danceForm" name="danceForm" placeholder="e.g., Kathak, Bharatanatyam" required />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="colorTheme">Color Theme *</Label>
+                        <Input id="colorTheme" name="colorTheme" placeholder="e.g., Red & Gold" required />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="budgetPerCostume">Budget per Costume (₹) *</Label>
+                        <Input id="budgetPerCostume" name="budgetPerCostume" type="number" min="0" required />
                       </div>
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="theme">Theme / Style *</Label>
-                      <Input id="theme" name="theme" placeholder="e.g., Mughal Kathak, Folk Fusion" required />
+                      <Label htmlFor="deliveryAddress">Delivery Address *</Label>
+                      <Textarea
+                        id="deliveryAddress"
+                        name="deliveryAddress"
+                        placeholder="Full address for costume delivery"
+                        rows={2}
+                        required
+                      />
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="contact">Contact Number *</Label>
-                      <Input id="contact" name="contact" type="tel" required />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="notes">Additional Notes</Label>
+                      <Label htmlFor="notes">Additional Notes / Moodboard Details</Label>
                       <Textarea
                         id="notes"
                         name="notes"
-                        placeholder="Any specific requirements or questions?"
+                        placeholder="Any specific requirements, style preferences, or attach moodboard photos"
                         rows={4}
                       />
                     </div>
