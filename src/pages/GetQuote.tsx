@@ -169,7 +169,7 @@ Additional Notes: ${data.notes}`;
                       />
                     </div>
 
-                    <Button type="submit" size="lg" className="w-full gradient-gold border-0 text-white">
+                    <Button type="submit" size="lg" className="w-full gradient-gold border-0 text-primary font-semibold">
                       Get Custom Quote
                     </Button>
 
