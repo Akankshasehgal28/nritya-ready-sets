@@ -14,7 +14,7 @@ const Footer = () => {
               <span className="text-xl font-display font-bold text-primary">TaalBox</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Stage-ready classical costumes for rent and purchase. Serving dance academies across Gurgaon.
+              Stage-ready costumes and performance essentials for rent and purchase. Serving artists across Gurgaon.
             </p>
             <div className="flex space-x-3">
               <Button variant="ghost" size="icon" className="h-9 w-9">

@@ -56,10 +56,10 @@ const Index = () => {
                           Serving Gurgaon Dance Academies
                         </Badge>
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 max-w-5xl mx-auto leading-tight">
-                          Stage-ready classical costumes — rent or buy for your next recital
+                          Stage-ready costumes and essentials — rent or buy for your next performance
                         </h1>
                         <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-white/90">
-                          Costume + jewelry sets, delivery & pickup in Gurgaon. Guaranteed backup for group shows.
+                          Costumes, jewelry, and performance essentials. Delivery & pickup in Gurgaon. Guaranteed backup for group shows.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                           <Button asChild size="lg" className="gradient-gold border-0 text-white text-lg px-8">

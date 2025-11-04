@@ -18,7 +18,7 @@ const About = () => {
               Built by Dancers, for Dancers
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              A passion project born from 12+ years of classical dance experience and countless costume headaches
+              A passion project born from 12+ years of performance experience and countless costume headaches
             </p>
           </div>
         </section>
